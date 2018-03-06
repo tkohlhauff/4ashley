@@ -18,6 +18,8 @@ ctx.fillStyle='black';
 ctx.fillRect(0,0,canvas.width,canvas.height);
 ctx.font="40px Courier";
 ctx.textAlign = "center";
+ctx.fillStyle="white";
+ctx.fillText("Click To Start",canvas.width/2,canvas.height/2);
 var i=0;
 var x=1;
 var firstAnimDone=false;
@@ -25,7 +27,11 @@ var slideshow=false;
 var buffer=1000;
 var audio= new Audio("4ashley/LOVE.mp3");
 audio.volume=0.5;
-audio.play();
+var z=0;
+canvas.addEventListener('click', function() {
+	audio.play();
+	ctx.fillStyle='black';
+	ctx.fillRect(0,0,canvas.width,canvas.height);
 while(x<58){
 	images[x-1]= new Image;
 	imgLoc="My_Girl/img"+x;
@@ -40,13 +46,15 @@ while(x<58){
 	}
 	imgLoc+=imgExt;
 	images[x-1].onload=function(){
+	
 	};
 	images[x-1].src=imgLoc;
 	x++;
 	
 }
-var z=0;
+
 var id=setInterval(drawTxt,buffer);
+});		
 function drawTxt(){
 		if(i<loading.length && !firstAnimDone){
 		ctx.fillStyle="white";
@@ -164,7 +172,7 @@ function draw(v,c) {
     c.drawImage(v,canvas.width / 2 - 200, canvas.height / 2 -200 );
     setTimeout(draw,5,v,c);
 }
-		
+
 
 
 
