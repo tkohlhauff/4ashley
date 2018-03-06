@@ -25,9 +25,7 @@ var slideshow=false;
 var buffer=1000;
 var audio= new Audio("4ashley/LOVE.mp3");
 audio.volume=0.5;
-audio.oncanplaythrough = function() {
-    audio.play();
-};
+audio.play();
 while(x<58){
 	images[x-1]= new Image;
 	imgLoc="My_Girl/img"+x;
