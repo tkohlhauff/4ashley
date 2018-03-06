@@ -56,16 +56,17 @@ function init(){
 	ctx.fillStyle='black';
 	ctx.fillRect(0,0,canvas.width,canvas.height);
 	drawTxt();
+
 }	
 function drawTxt(){
 		if(slideshow){
 				ctx.fillStyle='black';
 				ctx.fillRect(0,0,canvas.width,canvas.height);
-				ctx.font="60px Courier";
+				ctx.font="45px Courier";
 				ctx.fillStyle="red";
-				ctx.fillText("WHAT DOES LOVE SOUND LIKE?",canvas.width/2,canvas.height/2);
-				audio.volume=0.2;
-				playVideos();
+				ctx.fillText("WHAT DOES LOVE SOUND LIKE?(click)",canvas.width/2,canvas.height/2);
+				audio.volume=0.15;
+				canvas.addEventListener('click', function(){ playVideos();},false);
 		}
 		else{
 		setTimeout(drawTxt,buffer);
@@ -97,7 +98,7 @@ function drawTxt(){
 				buffer=1250;
 				ctx.fillStyle='black';
 				ctx.fillRect(0,0,canvas.width,canvas.height);
-				if (z<=images.length){
+				if (z<images.length){
 				ctx.drawImage(images[z],canvas.width / 2 - images[z].width / 2, canvas.height / 2 - images[z].height / 2);
 				z++;
 				}
@@ -169,6 +170,7 @@ function playVideos(){
 		ctx.fillStyle='black';
 		ctx.fillRect(0,0,canvas.width,canvas.height);
 		ctx.fillStyle="red";
+		ctx.font="20px Courier";
 		ctx.fillText("I love you Ashley Ramirez, Happy Anniversary",canvas.width/2,canvas.height/2);
 	});
 }
