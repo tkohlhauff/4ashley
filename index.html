@@ -9,6 +9,7 @@
 <script type='text/javascript'>
 
 var loading=["Amor","Liebe","爱","愛","애정","ਪਸੰਦ ਹੈ","Ast","Cinta","L'amour","Ljubav","Laska","Love"];
+var images= new Array();
 var canvas = document.getElementById("surface");
 var ctx= canvas.getContext("2d");
 ctx.canvas.width  = window.innerWidth;
@@ -27,9 +28,28 @@ audio.volume=0.5;
 audio.oncanplaythrough = function() {
     audio.play();
 };
+while(x<58){
+	images[x-1]= new Image;
+	imgLoc="My_Girl/img"+x;
+	if(x==1 || x==56 || x==57){
+		imgExt=".jpg";
+	}
+	else if (x== 5 || x== 23 || x==51 || x==52 || x==53 || x==54 || x==55 ){
+		imgExt=".JPG";
+	}
+	else{
+		imgExt=".PNG";
+	}
+	imgLoc+=imgExt;
+	images[x-1].onload=function(){
 
+	};
+	images[x-1].src=imgLoc;
+	x++;
+}
+console.log(images.length);
+var z=0;
 var id=setInterval(drawTxt,buffer);
-
 function drawTxt(){
 		if(i<loading.length && !firstAnimDone){
 		ctx.fillStyle="white";
@@ -46,7 +66,7 @@ function drawTxt(){
 		if(i==loading.length+1 && !firstAnimDone){
 			ctx.fillStyle='black';
 			ctx.fillRect(0,0,canvas.width,canvas.height);
-			ctx.font="100px Courier";
+			ctx.font="60px Courier";
 			ctx.fillStyle="red";
 			ctx.fillText("WHAT DOES LOVE LOOK LIKE?",canvas.width/2,canvas.height/2);
 			
@@ -56,36 +76,23 @@ function drawTxt(){
 		}
 		i++;
 		if(firstAnimDone && !slideshow){
-			buffer=2000;
-			ctx.fillStyle='black';
-			ctx.fillRect(0,0,canvas.width,canvas.height);
-			var img= new Image;
-			imgLoc="My_Girl/img"+x;
-			if(x==1 || x==56 || x==57){
-				imgExt=".jpg";
-			}
-			else if (x== 5 || x== 23 || x==51 || x==52 || x==53 || x==54 || x==55 ){
-				imgExt=".JPG";
-			}
-			else{
-				imgExt=".PNG";
-			}
-			imgLoc+=imgExt;
-			img.onload=function(){
-				ctx.drawImage(img,canvas.width / 2 - img.width / 2, canvas.height / 2 - img.height / 2);
-				x++
-				if(x==58){
+				buffer=1250;
+				ctx.fillStyle='black';
+				ctx.fillRect(0,0,canvas.width,canvas.height);
+				if (z<=images.length){
+				ctx.drawImage(images[z],canvas.width / 2 - images[z].width / 2, canvas.height / 2 - images[z].height / 2);
+				z++;
+				}
+				else{
 				slideshow=true;
 				}
-			};
-			img.src=imgLoc;
 			
 		}
 		if(slideshow){
 		 		clearInterval(id);
 				ctx.fillStyle='black';
 				ctx.fillRect(0,0,canvas.width,canvas.height);
-				ctx.font="100px Courier";
+				ctx.font="60px Courier";
 				ctx.fillStyle="red";
 				ctx.fillText("WHAT DOES LOVE SOUND LIKE?",canvas.width/2,canvas.height/2);
 				audio.volume=0.2;
