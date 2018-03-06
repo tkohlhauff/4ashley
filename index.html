@@ -119,13 +119,7 @@ function playVideos(){
 	var vid5= document.createElement("VIDEO");
 	var vid6= document.createElement("VIDEO");
 	var vid7= document.createElement("VIDEO");
-	vid1.setAttribute("src","4ashley/Video_4.MOV");
-	vid2.setAttribute("src","4ashley/Video_5.MOV");
-	vid3.setAttribute("src","4ashley/Video_1.MOV");
-	vid4.setAttribute("src","4ashley/Video_2.MOV");
-	vid5.setAttribute("src","4ashley/Video_3.MOV");
-	vid6.setAttribute("src","4ashley/Video_.MOV");
-	vid7.setAttribute("src","4ashley/Video_6.MOV");
+	vid1.setAttribute("src","4ashley/combined.mp4");
 	ctx.fillStyle='black';
 	ctx.fillRect(0,0,canvas.width,canvas.height);
 	vid1.play();
@@ -133,44 +127,6 @@ function playVideos(){
 	vid1.addEventListener('ended', function(){
 		ctx.fillStyle='black';
 		ctx.fillRect(0,0,canvas.width,canvas.height);
-		vid2.play();
-		draw(vid2,ctx);
-	});
-	vid2.addEventListener('ended', function(){
-		ctx.fillStyle='black';
-		ctx.fillRect(0,0,canvas.width,canvas.height);
-		vid3.play();
-		draw(vid3,ctx);
-	});
-	vid3.addEventListener('ended', function(){
-		ctx.fillStyle='black';
-		ctx.fillRect(0,0,canvas.width,canvas.height);
-		vid4.play();
-		draw(vid4,ctx);
-	});
-	vid4.addEventListener('ended', function(){
-		ctx.fillStyle='black';
-		ctx.fillRect(0,0,canvas.width,canvas.height);
-		vid5.play();
-		draw(vid5,ctx);
-	});
-	vid5.addEventListener('ended', function(){
-		ctx.fillStyle='black';
-		ctx.fillRect(0,0,canvas.width,canvas.height);
-		vid6.play();
-		draw(vid6,ctx);
-	});
-	vid6.addEventListener('ended', function(){
-		ctx.fillStyle='black';
-		ctx.fillRect(0,0,canvas.width,canvas.height);
-		vid7.play();
-		draw(vid7,ctx );
-	});
-	vid7.addEventListener('ended', function(){
-		ctx.fillStyle='black';
-		ctx.fillRect(0,0,canvas.width,canvas.height);
-		ctx.fillStyle="red";
-		ctx.font="20px Courier";
 		ctx.fillText("I love you Ashley Ramirez, Happy Anniversary",canvas.width/2,canvas.height/2);
 	});
 }
