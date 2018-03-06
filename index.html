@@ -28,10 +28,8 @@ var buffer=1000;
 var audio= new Audio("4ashley/LOVE.mp3");
 audio.volume=0.5;
 var z=0;
-canvas.addEventListener('click', function() {
-	audio.play();
-	ctx.fillStyle='black';
-	ctx.fillRect(0,0,canvas.width,canvas.height);
+canvas.addEventListener('click', function(){ init();},false);
+	
 while(x<58){
 	images[x-1]= new Image;
 	imgLoc="My_Girl/img"+x;
@@ -53,9 +51,24 @@ while(x<58){
 	
 }
 
-var id=setInterval(drawTxt,buffer);
-});		
+function init(){
+	audio.play();
+	ctx.fillStyle='black';
+	ctx.fillRect(0,0,canvas.width,canvas.height);
+	drawTxt();
+}	
 function drawTxt(){
+		if(slideshow){
+				ctx.fillStyle='black';
+				ctx.fillRect(0,0,canvas.width,canvas.height);
+				ctx.font="60px Courier";
+				ctx.fillStyle="red";
+				ctx.fillText("WHAT DOES LOVE SOUND LIKE?",canvas.width/2,canvas.height/2);
+				audio.volume=0.2;
+				playVideos();
+		}
+		else{
+		setTimeout(drawTxt,buffer);
 		if(i<loading.length && !firstAnimDone){
 		ctx.fillStyle="white";
 		ctx.fillText(loading[i],canvas.width/2,(i+1)*40);
@@ -93,16 +106,8 @@ function drawTxt(){
 				}
 			
 		}
-		if(slideshow){
-		 		clearInterval(id);
-				ctx.fillStyle='black';
-				ctx.fillRect(0,0,canvas.width,canvas.height);
-				ctx.font="60px Courier";
-				ctx.fillStyle="red";
-				ctx.fillText("WHAT DOES LOVE SOUND LIKE?",canvas.width/2,canvas.height/2);
-				audio.volume=0.2;
-				playVideos();
 		}
+		
 		
 }
 function playVideos(){
