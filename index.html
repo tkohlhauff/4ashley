@@ -24,7 +24,7 @@ var slideshow=false;
 var audio= new Audio("4ashley/LOVE.mp3");
 audio.volume=0.5;
 audio.play();
-var id=setInterval(drawTxt,1500);
+var id=setInterval(drawTxt,1750);
 
 function drawTxt(){
 		if(i<loading.length && !firstAnimDone){
@@ -96,13 +96,13 @@ function playVideos(){
 	var vid5= document.createElement("VIDEO");
 	var vid6= document.createElement("VIDEO");
 	var vid7= document.createElement("VIDEO");
-	vid1.setAttribute("src","4ashley/Video_4.mov");
-	vid2.setAttribute("src","4ashley/Video_5.mov");
-	vid3.setAttribute("src","4ashley/Video_1.mov");
-	vid4.setAttribute("src","4ashley/Video_2.mov");
-	vid5.setAttribute("src","4ashley/Video_3.mov");
-	vid6.setAttribute("src","4ashley/Video_.mov");
-	vid7.setAttribute("src","4ashley/Video_6.mov");
+	vid1.setAttribute("src","4ashley/Video_4.MOV");
+	vid2.setAttribute("src","4ashley/Video_5.MOV");
+	vid3.setAttribute("src","4ashley/Video_1.MOV");
+	vid4.setAttribute("src","4ashley/Video_2.MOV");
+	vid5.setAttribute("src","4ashley/Video_3.MOV");
+	vid6.setAttribute("src","4ashley/Video_.MOV");
+	vid7.setAttribute("src","4ashley/Video_6.MOV");
 	ctx.fillStyle='black';
 	ctx.fillRect(0,0,canvas.width,canvas.height);
 	vid1.play();
