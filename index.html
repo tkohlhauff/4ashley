@@ -21,10 +21,11 @@ var i=0;
 var x=1;
 var firstAnimDone=false;
 var slideshow=false;
+var buffer=1000;
 var audio= new Audio("4ashley/LOVE.mp3");
 audio.volume=0.5;
 audio.play();
-var id=setInterval(drawTxt,1750);
+var id=setInterval(drawTxt,buffer);
 
 function drawTxt(){
 		if(i<loading.length && !firstAnimDone){
@@ -52,6 +53,7 @@ function drawTxt(){
 		}
 		i++;
 		if(firstAnimDone && !slideshow){
+			buffer=2000;
 			ctx.fillStyle='black';
 			ctx.fillRect(0,0,canvas.width,canvas.height);
 			var img= new Image;
@@ -142,6 +144,12 @@ function playVideos(){
 		ctx.fillRect(0,0,canvas.width,canvas.height);
 		vid7.play();
 		draw(vid7,ctx );
+	});
+	vid7.addEventListener('ended', function(){
+		ctx.fillStyle='black';
+		ctx.fillRect(0,0,canvas.width,canvas.height);
+		ctx.fillStyle="red";
+		ctx.fillText("I love you Ashley Ramirez, Happy Anniversary",canvas.width/2,canvas.height/2);
 	});
 }
 function draw(v,c) {
