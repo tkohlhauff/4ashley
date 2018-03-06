@@ -24,7 +24,10 @@ var slideshow=false;
 var buffer=1000;
 var audio= new Audio("4ashley/LOVE.mp3");
 audio.volume=0.5;
-audio.play();
+vid.oncanplaythrough = function() {
+    audio.play();
+};
+
 var id=setInterval(drawTxt,buffer);
 
 function drawTxt(){
