@@ -122,12 +122,14 @@ function playVideos(){
 	vid1.setAttribute("src","4ashley/combined.mp4");
 	ctx.fillStyle='black';
 	ctx.fillRect(0,0,canvas.width,canvas.height);
+	audio.pause();
 	vid1.play();
 	draw(vid1,ctx);
 	vid1.addEventListener('ended', function(){
 		ctx.fillStyle='black';
 		ctx.fillRect(0,0,canvas.width,canvas.height);
 		ctx.fillText("I love you Ashley Ramirez, Happy Anniversary",canvas.width/2,canvas.height/2);
+		audio.play();
 	});
 }
 function draw(v,c) {
